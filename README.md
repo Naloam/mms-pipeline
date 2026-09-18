@@ -149,7 +149,16 @@ PYTHONPATH=. python scripts/run_agnews_mms.py evaluate \
 
 ## 输出怎么读
 
-每次评测输出 `report.json`（汇总）、`scores.jsonl`（逐样本）、输入清单与哈希；图像流水线另有 `features.npz` 和 HTML 报告。核心字段：
+每次评测输出 `report.json`（汇总）、`scores.jsonl`（逐样本）、输入清单与哈希；图像流水线另有 `features.npz` 和 HTML 报告。
+
+**一键导出 Excel**（逐图后验熵、概率、全部分数与候选标记 + 汇总 Sheet + 类别对矩阵）：
+
+```sh
+PYTHONPATH=. python scripts/export_excel.py /path/to/evaluation_dir
+# 生成 evaluation_dir/scores.xlsx；需要 openpyxl（pip install openpyxl）
+```
+
+核心字段：
 
 ```jsonc
 // report.json
