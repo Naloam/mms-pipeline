@@ -117,6 +117,14 @@ python -m mms_eval evaluate --input /path/to/generated_images \
   --device cuda:0 --batch-size 32 --cache-dir /path/to/cache
 ```
 
+**无 GPU 或只需要语义指标时**，用语义专用入口：同一冻结参考校验与算法 1 公式，跳过 FID/KID/IS/PR（不需要 Inception/VGG 权重，CPU 可跑），输出与正式评测同格式，可直接接 `export_excel.py`：
+
+```sh
+PYTHONPATH=. python scripts/evaluate_semantic_only.py \
+  --input /path/to/images_or_manifest --reference /path/to/reference.json \
+  --checkpoint /path/to/evaluator/best.pt --out /path/to/result --device cpu
+```
+
 同域评新模型**只需最后一条命令**：分类器、阈值、预处理全部复用冻结参考。另有 `quality`（只算质量指标）、`evaluate-batch`（多来源固定 N 抽样）、`compare`（同口径模型比较，无需 GPU）。
 
 ### 各专用域（均为 prepare→train→reference→evaluate 模式）
@@ -157,6 +165,22 @@ PYTHONPATH=. python scripts/run_agnews_mms.py evaluate \
 PYTHONPATH=. python scripts/export_excel.py /path/to/evaluation_dir
 # 生成 evaluation_dir/scores.xlsx；需要 openpyxl（pip install openpyxl）
 ```
+
+生成链：评测命令自动产出 `report.json` + `scores.jsonl` → `export_excel.py` 一条命令读这两个文件生成 Excel（全自动，无人工整理）。
+
+**Excel 与论文算法 1 输出的列对照**：
+
+| 算法 1 的量 | Excel 中的位置 |
+|---|---|
+| 后验概率 p(c\|x)（式 2） | `per_image` 表 `p_<类别>` 列（AFHQ 为 `p_cat` / `p_dog` / `p_wild`） |
+| **后验熵 H(x)（式 3）** | `per_image` 表 `entropy` 列 |
+| 阈值 τ（式 4/5） | `summary` 表阈值区 `score=entropy` 行的 `threshold_tau` |
+| ① 全局 MMS（式 9） | `summary` 表 `MMS_candidate_fraction`（旁有 `candidate_count`、`n`） |
+| ② 置信区间 | `summary` 表 `wilson95_lower/upper` 和 `hoeffding95_lower/upper` |
+| ③ 逐样本候选标记 d_i（式 7） | `per_image` 表 `flag_entropy` 列（TRUE = 候选） |
+| ④ 类别对矩阵 M_ab（式 12） | `pair_matrix` 表（计数块 + 比例块，总和恒等于全局 MMS） |
+
+`per_image` 表还包含 top1/top2 类别、4 个同校准基线分数及其候选标记、旧 MMR 规则标记。
 
 核心字段：
 
