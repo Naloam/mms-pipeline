@@ -1,0 +1,22 @@
+{
+  "domain": "AFHQ",
+  "protocol_id": "AFHQ_detection_v1",
+  "category_mode": "exclusive",
+  "classes": ["cat", "dog", "wild"],
+  "dataset_version": "existing_500k_source_version_to_audit",
+  "train_subdir": "train",
+  "external_subdir": "val",
+  "validation_n": 1500,
+  "calibration_pool_n": 2000,
+  "internal_audit_n": 1000,
+  "calibration_n": 1500,
+  "split_seed": 2026090601,
+  "reference_seed": 2026090602,
+  "calibration_seed": 2026090603,
+  "workers": 8,
+  "image_policy": {"canonical_size": [256, 256], "alpha_background": [255, 255, 255]},
+  "temperature": 1.0,
+  "alpha": 0.05,
+  "semantic_status": "categorical_interface_ready_human_MM_validity_pending",
+  "metrics": {"kid_subsets": 100, "kid_subset_size": 1000, "isc_splits": 10, "pr_k": 3, "pr_chunk_size": 512, "pr_max_samples": 5000, "rng_seed": 2026090604}
+}

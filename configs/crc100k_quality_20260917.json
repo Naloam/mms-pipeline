@@ -1,0 +1,22 @@
+{
+  "domain": "CRC100K",
+  "protocol_id": "CRC100K_GAN_saved_JPEG_quality_v1_20260917",
+  "dataset_version": "NCT-CRC-HE-100K Macenko-normalized 100000 PNG training images and saved StyleGAN2-ADA 50000 JPEG pool",
+  "domain_contract_version": 1,
+  "registration_status": "quality_only",
+  "image_policy": {
+    "canonical_size": [224, 224]
+  },
+  "metrics": {
+    "feature_backend": "clean-fid",
+    "pr_feature_backend": "vgg16",
+    "kid_subsets": 100,
+    "kid_subset_size": 1000,
+    "isc_splits": 10,
+    "pr_k": 3,
+    "pr_chunk_size": 512,
+    "pr_max_samples": 5000,
+    "pr_balanced": true,
+    "rng_seed": 2026091711
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "domain": "CIFAR10",
+  "protocol_id": "CIFAR10_detection_clean_v1",
+  "category_mode": "exclusive",
+  "classes": ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"],
+  "dataset_version": "CIFAR-10 python version 1700528161 (60000 32x32 color images, 10 mutually exclusive classes)",
+  "train_subdir": "train",
+  "external_subdir": "test",
+  "validation_n": 1500,
+  "calibration_pool_n": 2000,
+  "internal_audit_n": 1000,
+  "calibration_n": 1500,
+  "split_seed": 2026091803,
+  "reference_seed": 2026091804,
+  "calibration_seed": 2026091805,
+  "workers": 8,
+  "image_policy": {"canonical_size": [32, 32], "alpha_background": [255, 255, 255]},
+  "temperature": 1.0,
+  "alpha": 0.05,
+  "semantic_status": "categorical_interface_ready_human_MM_validity_pending",
+  "metrics": {"kid_subsets": 100, "kid_subset_size": 1000, "isc_splits": 10, "pr_k": 3, "pr_chunk_size": 512, "pr_max_samples": 5000, "rng_seed": 2026091806, "feature_backend": "clean-fid", "pr_feature_backend": "vgg16", "pr_balanced": true},
+  "domain_contract_version": 1,
+  "registration_status": "registered",
+  "semantic_definition": "One dominant CIFAR-10 object class per 32x32 image; a high-entropy sample is a candidate for cross-class feature fusion within a single subject, not a confirmed mixture and not legitimate multi-object coexistence.",
+  "pretraining_audit": {
+    "status": "disjoint_declared",
+    "evidence": "CIFAR-10 photographs are 32x32 web-collected images labeled by the dataset authors and are not part of the ImageNet-1k training set used for evaluator initialization; this is a provenance declaration, not a membership verification.",
+    "calibration_source": "cifar10_train_holdout"
+  },
+  "evaluator_initialization": {
+    "architecture": "resnet50",
+    "weights": "IMAGENET1K_V1"
+  }
+}

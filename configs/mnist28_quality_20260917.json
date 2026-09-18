@@ -1,0 +1,24 @@
+{
+  "domain": "MNIST",
+  "protocol_id": "MNIST28_quality_only_v1_20260917",
+  "dataset_version": "source_train_IDX_gzip_sha256_440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+  "domain_contract_version": 1,
+  "registration_status": "quality_only",
+  "digit_polarity": "light_on_dark",
+  "image_policy": {
+    "canonical_size": [28, 28],
+    "alpha_background": [0, 0, 0]
+  },
+  "metrics": {
+    "feature_backend": "clean-fid",
+    "pr_feature_backend": "vgg16",
+    "kid_subsets": 100,
+    "kid_subset_size": 1000,
+    "isc_splits": 10,
+    "pr_k": 3,
+    "pr_chunk_size": 512,
+    "pr_max_samples": 5000,
+    "pr_balanced": true,
+    "rng_seed": 2026091703
+  }
+}

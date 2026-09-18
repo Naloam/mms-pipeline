@@ -1,0 +1,67 @@
+{
+  "domain": "MNIST",
+  "protocol_id": "MNIST_detection_clean_v1",
+  "category_mode": "exclusive",
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "dataset_version": "REPLACE_ME_exact_release_and_source",
+  "train_subdir": "train",
+  "external_subdir": "val",
+  "validation_n": 1500,
+  "calibration_pool_n": 2000,
+  "internal_audit_n": 1000,
+  "calibration_n": 1500,
+  "split_seed": 2026090601,
+  "reference_seed": 2026090602,
+  "calibration_seed": 2026090603,
+  "workers": 8,
+  "image_policy": {
+    "canonical_size": [
+      28,
+      28
+    ],
+    "alpha_background": [
+      0,
+      0,
+      0
+    ]
+  },
+  "temperature": 1.0,
+  "alpha": 0.05,
+  "semantic_status": "awaiting_dataset_scope_and_real_validation",
+  "metrics": {
+    "kid_subsets": 100,
+    "kid_subset_size": 1000,
+    "isc_splits": 10,
+    "pr_k": 3,
+    "pr_chunk_size": 512,
+    "pr_max_samples": 5000,
+    "rng_seed": 2026090604,
+    "feature_backend": "clean-fid",
+    "pr_feature_backend": "vgg16",
+    "pr_balanced": true
+  },
+  "domain_contract_version": 1,
+  "registration_status": "template",
+  "semantic_definition": "One digit is one subject. Deformed or ambiguous digits require independent human judgment; classification uncertainty alone is not MM.",
+  "pretraining_audit": {
+    "status": "pending",
+    "evidence": "",
+    "calibration_source": ""
+  },
+  "digit_polarity": "light_on_dark",
+  "evaluator_initialization": {
+    "architecture": "resnet50",
+    "weights": null
+  }
+}

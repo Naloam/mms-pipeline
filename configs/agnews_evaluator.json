@@ -1,0 +1,17 @@
+{
+  "architecture": "sklearn_tfidf_logreg_v1",
+  "classes": ["World", "Sports", "Business", "SciTech"],
+  "vectorizer": {
+    "lowercase": true,
+    "ngram_range": [1, 2],
+    "min_df": 2,
+    "sublinear_tf": true
+  },
+  "logistic_regression": {
+    "Cs": [0.5, 1.0, 2.0],
+    "max_iter": 2000,
+    "solver": "lbfgs",
+    "random_state": 2026091802
+  },
+  "selection": "minimum_validation_mean_negative_log_likelihood"
+}

@@ -1,0 +1,18 @@
+{
+  "architecture": "resnet50",
+  "weights": "IMAGENET1K_V1",
+  "classes": ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"],
+  "epochs": 12,
+  "micro_batch_size": 32,
+  "effective_batch_size": 64,
+  "backbone_lr": 0.0001,
+  "head_lr": 0.001,
+  "weight_decay": 0.01,
+  "seed": 2026091807,
+  "horizontal_flip_probability": 0.5,
+  "deterministic": false,
+  "image_policy": {},
+  "device": "cuda:0",
+  "num_workers": 8,
+  "resume": true
+}

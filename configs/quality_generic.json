@@ -1,0 +1,5 @@
+{
+  "protocol_id": "quality_nativeRGB_inception_v1",
+  "image_policy": {"canonical_size": null, "alpha_background": [255,255,255]},
+  "metrics": {"kid_subsets":100,"kid_subset_size":1000,"isc_splits":10,"pr_k":3,"pr_chunk_size":512,"pr_max_samples":5000,"rng_seed":2026090604}
+}

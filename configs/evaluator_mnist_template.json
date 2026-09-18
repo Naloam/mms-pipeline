@@ -1,0 +1,39 @@
+{
+  "architecture": "resnet50",
+  "weights": null,
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "epochs": 20,
+  "micro_batch_size": 32,
+  "effective_batch_size": 64,
+  "backbone_lr": 0.0001,
+  "head_lr": 0.001,
+  "weight_decay": 0.01,
+  "seed": 2026091101,
+  "horizontal_flip_probability": 0.0,
+  "deterministic": true,
+  "image_policy": {
+    "canonical_size": [
+      256,
+      256
+    ],
+    "alpha_background": [
+      255,
+      255,
+      255
+    ]
+  },
+  "device": "cuda:0",
+  "num_workers": 4,
+  "resume": true
+}
